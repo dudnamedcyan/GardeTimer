@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garde Timer</title>
+    <h1>(Counts down to Garde's long-awaited Ganyu rerun)</h1>
+    <style type = "text/css">
+        body {
+            background-color: cyan;
+        }
+
+    .countDownContainer{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        text-align: center;
+        background: #fff;
+        border: 5px solid rgb(0, 60, 255);
+        padding : 20px;
+
+    }
+
+    .info{
+        font-size: large;
+    }
+    </style>
+</head>
+<body>
+    <table class = "countDownContainer">
+        <tr class = "info">
+            <td colspan = "4" class = "info">Ganyu Rerun</td>
+        </tr>
+        <tr class = "info">
+            <td id = "days"></td>
+            <td id = "hours"></td>
+            <td id = "minutes"></td>
+            <td id = "seconds"></td>
+        </tr>
+        <tr>
+            <td>Days</td>
+            <td>Hours</td>
+            <td>Minutes</td>
+            <td>Seconds</td>
+        </tr>
+    </table>
+    <script type = "text/javascript">
+        function ganyuGoBrr(){
+            var now = new Date();
+            var ganyu = new Date(2022, 1, 25, 6, 0, 0);
+            var timeDiff = ganyu.getTime() - now.getTime();
+
+            var seconds = Math.floor(timeDiff / 1000);
+            var minutes = Math.floor(seconds / 60);
+            var hours = Math.floor(minutes / 60);
+            var days = Math.floor(hours / 24);
+
+            h %= 24;
+            m %= 60;
+            s %= 60;
+
+            document.getElementById("days").textContent = days;
+            document.getElementById("days").innerText = days;
+
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("seconds").textContent = seconds;
+
+            setTimeout(ganyuGoBrr, 1000);
+        }
+
+        ganyuGoBrr();
+    </script>
+</body>
+</html>
